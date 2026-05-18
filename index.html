@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allianz Technology America | Data & AI Transformation Agent Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="blue-ribbon"></div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-block">
+        <div class="brand-mark" aria-label="Allianz inspired mark">
+          <span class="ring"></span><span class="bar"></span><span class="bar small"></span>
+        </div>
+        <div>
+          <h1>Allianz Technology America</h1>
+          <p>Data & AI Transformation Office</p>
+        </div>
+      </div>
+      <nav>
+        <button class="nav-btn active" data-view="dashboard"><span>01</span> Executive Cockpit</button>
+        <button class="nav-btn" data-view="agents"><span>02</span> Agent Portfolio</button>
+        <button class="nav-btn" data-view="workflow"><span>03</span> Enablement Factory</button>
+        <button class="nav-btn" data-view="governance"><span>04</span> Trust & Governance</button>
+        <button class="nav-btn" data-view="copilot"><span>05</span> Leadership Copilot</button>
+      </nav>
+      <div class="sidebar-card">
+        <span class="label">Enterprise posture</span>
+        <strong>Trusted AI at Scale</strong>
+        <p>Federated delivery, centrally governed standards, reusable data products, and audit-ready AI controls.</p>
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Insurance-grade AI enablement platform</p>
+          <h2 id="view-title">Executive Cockpit</h2>
+        </div>
+        <div class="topbar-actions">
+          <div class="status-strip"><span class="pulse"></span><span>12 governed agents active</span></div>
+          <button class="secondary-btn">Q2 Steering Pack</button>
+        </div>
+      </header>
+
+      <section id="dashboard" class="view active">
+        <div class="hero">
+          <div>
+            <p class="eyebrow">AI Transformation Intelligence Layer</p>
+            <h3>Enable trusted AI adoption across claims, underwriting, risk, operations, and customer experience.</h3>
+            <p>The hub coordinates AI use-case intake, data readiness, governance, delivery orchestration, workforce adoption, and measurable business value for a regulated insurance enterprise.</p>
+            <div class="hero-actions">
+              <button onclick="document.querySelector('[data-view=agents]').click()">Explore Agents</button>
+              <button class="secondary-btn" onclick="document.querySelector('[data-view=governance]').click()">Review Controls</button>
+            </div>
+          </div>
+          <div class="hero-metrics">
+            <div><strong>87%</strong><span>enterprise AI readiness</span></div>
+            <div><strong>$18.4M</strong><span>annualized value potential</span></div>
+            <div><strong>23</strong><span>scale-path use cases</span></div>
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi"><span>Active AI Initiatives</span><strong>64</strong><em>+11 this quarter</em></div>
+          <div class="kpi"><span>Responsible AI Risk</span><strong>Medium</strong><em>7 items need review</em></div>
+          <div class="kpi"><span>Adoption Index</span><strong>72%</strong><em>Claims and Ops leading</em></div>
+          <div class="kpi"><span>Certified Data Products</span><strong>42</strong><em>118 total products</em></div>
+        </div>
+
+        <div class="panel-grid two">
+          <div class="panel">
+            <div class="panel-head"><h4>Domain AI Readiness Heatmap</h4><button onclick="refreshHeatmap()">Refresh</button></div>
+            <div id="heatmap" class="heatmap"></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h4>AI Value Realization</h4><button onclick="simulateValue()">Simulate</button></div>
+            <div class="bar-chart" id="valueChart"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="agents" class="view">
+        <div class="section-intro">
+          <p class="eyebrow">Portfolio of specialized agents</p>
+          <h3>Data & AI Enablement Agent Portfolio</h3>
+          <p>Each agent has a precise transformation role: discover opportunities, validate data, enforce responsible AI, orchestrate delivery, and track value realization.</p>
+        </div>
+        <div id="agentGrid" class="agent-grid"></div>
+      </section>
+
+      <section id="workflow" class="view">
+        <div class="section-intro">
+          <p class="eyebrow">Repeatable AI delivery motion</p>
+          <h3>Enablement Factory Workflow</h3>
+          <p>From ideation to governed production scale, the office creates repeatability without weakening control discipline.</p>
+        </div>
+        <div class="workflow" id="workflowSteps"></div>
+        <div class="panel output-panel">
+          <h4>Selected Agent Output</h4>
+          <pre id="workflowOutput">Select a workflow step to inspect agent-generated output.</pre>
+        </div>
+      </section>
+
+      <section id="governance" class="view">
+        <div class="section-intro">
+          <p class="eyebrow">Trust, safety, auditability</p>
+          <h3>Responsible AI Governance Control Tower</h3>
+          <p>Responsible AI, regulatory alignment, security review, model lifecycle monitoring, and audit evidence are coordinated centrally.</p>
+        </div>
+        <div class="panel-grid two">
+          <div class="panel">
+            <h4>Risk Queue</h4>
+            <div id="riskQueue"></div>
+          </div>
+          <div class="panel">
+            <h4>Control Checklist</h4>
+            <div id="controlChecklist"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="copilot" class="view">
+        <div class="section-intro">
+          <p class="eyebrow">Executive decision support</p>
+          <h3>Leadership Copilot</h3>
+          <p>Ask executive-level questions about AI portfolio, data readiness, risk, adoption, or value realization.</p>
+        </div>
+        <div class="chat-shell">
+          <div id="chatMessages" class="chat-messages"></div>
+          <div class="prompt-chips">
+            <button data-prompt="Which AI initiatives should scale next?">Scale candidates</button>
+            <button data-prompt="Where are our biggest governance risks?">Governance risks</button>
+            <button data-prompt="Which domains are least AI ready?">AI readiness</button>
+            <button data-prompt="Create an executive summary for the steering committee.">Exec summary</button>
+          </div>
+          <div class="chat-input">
+            <input id="userPrompt" placeholder="Ask the transformation office copilot..." />
+            <button onclick="sendPrompt()">Send</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="agentModal" class="modal hidden">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
